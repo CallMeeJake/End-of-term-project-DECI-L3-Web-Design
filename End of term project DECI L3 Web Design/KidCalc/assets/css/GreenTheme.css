@@ -1,6 +1,6 @@
 body{
     background-image: url(../images/forest.jpg);
-    background-attachment: fixed;
+    background-attachment: fixed; /* idea from stack overflow https://stackoverflow.com/a/25369871/21952192 */
     background-repeat: no-repeat;
     background-size: 100%;
 }
