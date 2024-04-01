@@ -1,0 +1,19 @@
+body{
+    background-image: url("../images/flowerbackground.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+input[type="text"]
+,input[type="number"]{
+    background-color: rgb(255, 170, 184);
+}
+
+.box{
+    background-color: pink;
+}
+
+.calcbutton{
+    background-color: rgb(255, 170, 184);
+}

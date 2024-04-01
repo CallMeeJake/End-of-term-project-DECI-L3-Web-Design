@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/DeafultTheme.css">
+    <link id="themecss" rel="stylesheet" href="">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <Form class="login box">
+            <div id="logtitle"> <h3>Choose a theme and login to make the page come to life! </h3> </div> <br>
+            <div>Name: <input type="text" name="name" id="name"></div> <br>
+            <div>Age:&nbsp; &nbsp; <input type="number" name="age" id="age"></div> <br>
+            <button type="button" onclick="login()">Submit</button> <br> <br>
+            Choose Theme:
+            <div id="theme"> <br>
+                <div>&nbsp;Deafult<input type="radio" name="theme" value="" id="deafult" onchange="changeTheme(this)"></div>
+                <div>&nbsp;Green<input type="radio" name="theme" value="assets/css/GreenTheme.css" id="cartoons" onchange="changeTheme(this)"></div>
+                <div>&nbsp;Blue<input type="radio" name="theme" value="assets/css/BlueTheme.css" id="waldo" onchange="changeTheme(this)"></div>
+                <div>&nbsp;Pink<input type="radio" name="theme" value="assets/css/PinkTheme.css" id="flowers" onchange="changeTheme(this)"></div>
+            </div>
+        </form>
+        <div class="calccont">
+            <div class="calc box">
+                <div class="inputs">
+                    <input type="text" name="result" placeholder="Enter operation here (keyboard, calculator numbers)" id="operation"> <br>
+                    <input type="text" name="result" placeholder="Enter expected result here (keyboard only)" id="result">
+                </div>
+                <div class="numbers">
+                    <button class="calcbutton" id="one" onclick="addValue('1')"> 1 </button>
+                    <button class="calcbutton" id="two" onclick="addValue('2')"> 2 </button>
+                    <button class="calcbutton" id="three" onclick="addValue('3')"> 3 </button> <br>
+                    <button class="calcbutton" id="four" onclick="addValue('4')"> 4 </button>
+                    <button class="calcbutton" id="five" onclick="addValue('5')"> 5 </button>
+                    <button class="calcbutton" id="six" onclick="addValue('6')"> 6 </button> <br>
+                    <button class="calcbutton" id="seven" onclick="addValue('7')"> 7 </button>
+                    <button class="calcbutton" id="eight" onclick="addValue('8')"> 8 </button>
+                    <button class="calcbutton" id="nine" onclick="addValue('9')"> 9 </button> <br> 
+                    <button class="calcbutton" id="zero" onclick="addValue('0')"> 0 </button>
+                </div>
+                <div class="operations">
+                    <button class="calcbutton" id="delete" onclick="decValue()"> C </button> <br>
+                    <button class="calcbutton" id="plus" onclick="addValue('+')"> + </button> <button class="calcbutton" id="minus" onclick="addValue('-')"> - </button> <br>
+                    <button class="calcbutton" id="lessthan" onclick="addValue('<')"> < </button> <button class="calcbutton" id="greaterthan" onclick="addValue('>')"> > </button> <br>
+                    <button class="calcbutton" id="equal" onclick="checkOperation()"> = </button>
+                </div>
+            </div>
+        </div>
+        <div class="info box">
+            <div><h2 id="welcome">Welcome!</h2></div>
+        </div>
+    </div>
+</body>
+<script> 
+    function login() {
+        let name = document.getElementById("name").value;
+        let age = document.getElementById("age").value;
+        let welcome = document.getElementById("welcome");
+
+        if ( name == "" || age == "") {
+            alert("Please enter name and age")
+        } else {
+            welcome.innerText = "Welcome " + name + "!";
+        }
+    }
+
+    function changeTheme(radioButton) {
+        let themeCss = document.getElementById("themecss");
+        themeCss.href = radioButton.value;
+    }
+    
+    function addValue(x) {
+        document.getElementById("operation").value += x;
+    }
+
+    function decValue() {
+        let inputValue = document.getElementById("operation").value;
+
+        if (inputValue.length > 0) {
+            let decreasedValue = inputValue.slice(0, -1);
+            document.getElementById("operation").value = decreasedValue;
+      }
+    }
+
+    function checkOperation() {
+        let operationInput = document.getElementById("operation").value;
+        let expectedResultInput = document.getElementById("result").value;
+
+        if(operationInput.includes(">","<")){
+            let comparision = eval(operationInput);
+            if(comparision){
+                alert("This expression is True!");
+            } else{
+                alert("This expression is False!");
+            }
+        } else if (!operationInput || !expectedResultInput) {
+            alert("Please enter both the operation and the expected result.");
+            return;
+        } else {
+            let result = eval(operationInput);
+
+            if(result == expectedResultInput) {
+                alert("Correct! Great Job!");
+            } else {
+                alert("Sorry! But That is Incorrect. Try Again!");
+            }
+        }
+
+        
+    }
+
+</script>
+</html>
