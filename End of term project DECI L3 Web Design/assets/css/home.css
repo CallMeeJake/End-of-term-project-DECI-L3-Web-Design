@@ -76,71 +76,34 @@ img{
     "n1 n2 n3"
     "n4 n5 n6";
 }
-    #news1{
+
+    .newsbox{
         padding: 10px;
-        padding-bottom: 0;
         text-align: center;
         background-color: darkcyan;
-        grid-area: n1;
         width: 200px;
         height: 250px;
         border-radius: 9px;
         margin-bottom: 40px;
+    }
+
+    #news1{
+        grid-area: n1;
     }
     #news2{
-        padding: 10px;
-        padding-bottom: 0;
-        text-align: center;
         grid-area: n2;
-        background-color: darkcyan;
-        width: 200px;
-        height: 250px;
-        border-radius: 9px;
-        margin-bottom: 40px;
     }
     #news3{
-        padding: 10px;
-        padding-bottom: 0;
-        text-align: center;
         grid-area: n3;
-        background-color: darkcyan;
-        width: 200px;
-        height: 250px;
-        border-radius: 9px;
-        margin-bottom: 40px;
     }    
     #news4{
-        padding: 10px;
-        padding-bottom: 0;
-        text-align: center;
         grid-area: n4;
-        background-color: darkcyan;
-        width: 200px;
-        height: 250px;
-        border-radius: 9px;
-        margin-bottom: 40px;
     }    
     #news5{
-        padding: 10px;
-        padding-bottom: 0;
-        text-align: center;
         grid-area: n5;
-        background-color: darkcyan;
-        width: 200px;
-        height: 250px;
-        border-radius: 9px;
-        margin-bottom: 40px;
     }    
     #news6{
-        padding: 10px;
-        padding-bottom: 0;
-        text-align: center;
         grid-area: n6;
-        background-color: darkcyan;
-        width: 200px;
-        height: 250px;
-        border-radius: 9px;
-        margin-bottom: 40px;
     } 
 
 #date{
@@ -158,10 +121,11 @@ img{
 
 @media(max-width:480px){
     .container{
-        grid-template-columns: 125px 300px;
+        grid-template-columns: auto;
         grid-template-areas: 
         "hd1 hd1"
-        "hd2 main"
+        "hd2 hd2"
+        "main main"
         "ft ft";
     }
     .content{
@@ -170,20 +134,25 @@ img{
         display: grid;
         justify-content: space-around;
         grid-template-areas: 
-        "n1"
-        "n2"
-        "n3"
-        "n4"
-        "n5"
-        "n6";
+        "n1 n2"
+        "n3 n4"
+        "n5 n6";
     }
+
     .header2{
+        padding-top: 0;
         flex-direction: column;
         align-items: center;
+        line-height: 30px;
     }
+
+    .newsbox{
+        width: 84%;
+    }
+
     #main{
         width: 101px;
-        font-size: larger;
+        font-size: x-large;
     }    
 }
 
@@ -197,4 +166,3 @@ img{
         "ft ft";
     }
 }
-
